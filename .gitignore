@@ -9,7 +9,7 @@
 !tmux/
 !gtk-3.0/
 !wallpapers/
-!.zshrc
+!fish/
 
 # Include screenshots
 !screenshot1.png
