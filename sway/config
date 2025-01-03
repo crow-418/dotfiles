@@ -11,6 +11,11 @@ set $GTK_THEME Adwaita-dark
 exec --no-startup-id GTK_THEME=$GTK_THEME
 exec gammastep
 
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 # Mountain
 output * bg ../wallpapers/a_painting_of_a_man_with_a_face_on_his_head.png fill
 
@@ -46,7 +51,7 @@ bindsym XF86AudioNext exec --no-startup-id playerctl --player=spotify next
 bindsym XF86AudioMute exec --no-startup-id playerctl --player=spotify play-pause
 bindsym XF86AudioPlay exec --no-startup-id playerctl --player=spotify play-pause
 bindsym XF86AudioStop exec --no-startup-id playerctl --player=spotify stop
-bindsym Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
+bindsym Print exec --no-startup-id flameshot gui
 
 # Basic keybindings
 bindsym $mod+w kill

@@ -20,3 +20,4 @@ alias gl "git log"
 alias gc "git commit"
 
 export GTK_THEME=Adwaita:dark
+export XDG_CURRENT_DESKTOP=sway
