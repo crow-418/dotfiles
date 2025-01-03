@@ -15,7 +15,7 @@ exec gammastep
 output * bg ../wallpapers/a_painting_of_a_man_with_a_face_on_his_head.png fill
 
 # Set screen refresh rate
-output HDMI-A-2 mode 1920x1080@120Hz
+output HDMI-A-1 mode 1920x1080@120Hz
 
 # Default workspace
 workspace 1
@@ -104,6 +104,11 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Remove mouse acceleration
+input type:pointer {
+    accel_profile "flat" 
+}
 
 # Bar configuration
 bar {
