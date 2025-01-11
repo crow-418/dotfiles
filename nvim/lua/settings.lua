@@ -36,3 +36,6 @@ vim.opt.smartcase = true
 vim.g.netrw_browse_split = 4
 -- Open file to the right of netrw instead of left
 vim.g.netrw_altv = 1
+
+-- Ignore neovim python recommendation
+vim.g.python_recommended_style = 0
