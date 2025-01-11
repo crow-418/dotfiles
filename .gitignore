@@ -11,6 +11,8 @@
 !wallpapers/
 !fish/
 !gammastep/
+!ncmpcpp/
+!mpd/
 
 # Include screenshots
 !screenshot1.png
