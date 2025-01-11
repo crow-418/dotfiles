@@ -44,13 +44,13 @@ hide_edge_borders smart
 floating_modifier $mod
 
 # Keybindings
-bindsym XF86AudioRaiseVolume exec --no-startup-id playerctl --player=spotify volume 0.1+
-bindsym XF86AudioLowerVolume exec --no-startup-id playerctl --player=spotify volume 0.1-
-bindsym XF86AudioPrev exec --no-startup-id playerctl --player=spotify previous
-bindsym XF86AudioNext exec --no-startup-id playerctl --player=spotify next
-bindsym XF86AudioMute exec --no-startup-id playerctl --player=spotify play-pause
-bindsym XF86AudioPlay exec --no-startup-id playerctl --player=spotify play-pause
-bindsym XF86AudioStop exec --no-startup-id playerctl --player=spotify stop
+bindsym XF86AudioRaiseVolume exec --no-startup-id mpc volume +5
+bindsym XF86AudioLowerVolume exec --no-startup-id mpc volume -5
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+bindsym XF86AudioNext exec --no-startup-id mpc next
+bindsym XF86AudioMute exec --no-startup-id mpc toggle
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioStop exec --no-startup-id mpc stop
 bindsym Print exec --no-startup-id flameshot gui
 
 # Basic keybindings
