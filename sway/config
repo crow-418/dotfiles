@@ -10,7 +10,7 @@ set $menu wmenu-run
 set $GTK_THEME Adwaita-dark
 exec --no-startup-id GTK_THEME=$GTK_THEME
 exec gammastep
-
+exec /usr/lib/xdg-desktop-portal -r
 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
@@ -117,6 +117,6 @@ input type:pointer {
 
 # Bar configuration
 bar {
-  status_command i3status
+    status_command i3status
     tray_output none
 }
