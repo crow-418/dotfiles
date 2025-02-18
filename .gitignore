@@ -6,13 +6,13 @@
 !sway/
 !i3status/
 !foot/
-!tmux/
 !gtk-3.0/
 !wallpapers/
 !fish/
 !gammastep/
 !ncmpcpp/
 !mpd/mpd.conf
+!tmux/tmux.conf
 
 # Include screenshots
 !screenshot1.png
