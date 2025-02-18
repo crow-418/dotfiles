@@ -12,7 +12,7 @@
 !fish/
 !gammastep/
 !ncmpcpp/
-!mpd/
+!mpd/mpd.conf
 
 # Include screenshots
 !screenshot1.png
