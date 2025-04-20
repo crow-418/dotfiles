@@ -11,9 +11,9 @@ set -x MANPAGER "nvim +Man!"
 alias sudo "doas"
 alias ns "tmux new-session -s"
 alias la "ls -a"
-alias download-audio "yt-dlp --extract-audio --add-metadata --no-playlist --embed-thumbnail"
+alias download-audio "yt-dlp --extract-audio --audio-format mp3 --add-metadata --no-playlist --embed-thumbnail"
 alias download-video "yt-dlp -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
-alias img "gpicview"
+alias img "feh"
 alias ff "fastfetch"
 alias gs "git status"
 alias gl "git log"
@@ -21,3 +21,6 @@ alias gc "git commit"
 
 export GTK_THEME=Adwaita:dark
 export XDG_CURRENT_DESKTOP=sway
+
+set -Ux PIPEWIRE_LATENCY 128/48000
+set -Ux JACK_PROMISCUOUS_SERVER jack
