@@ -16,11 +16,13 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
+exec --no-startup-id flameshot &
+
 # Mountain
-output * bg ../wallpapers/a_painting_of_a_man_with_a_face_on_his_head.png fill
+# output * bg ../wallpapers/a_painting_of_a_man_with_a_face_on_his_head.png fill
 
 # Set screen refresh rate
-output HDMI-A-1 mode 1920x1080@120Hz
+output DP-1 mode 1920x1080@75Hz
 
 # Default workspace
 workspace 1
@@ -32,7 +34,7 @@ default_border none
 font "JetBrains Mono Regular 10"
 
 # Window assignments
-for_window [app_id="zen-alpha"] move to workspace 1
+for_window [app_id="firefox"] move to workspace 1
 for_window [class="obsidian"] move to workspace 4
 
 # Window settings
@@ -43,7 +45,7 @@ hide_edge_borders smart
 # Floating window settings
 floating_modifier $mod
 
-# Keybindings
+# Music Keybindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id mpc volume +5
 bindsym XF86AudioLowerVolume exec --no-startup-id mpc volume -5
 bindsym XF86AudioPrev exec --no-startup-id mpc prev
@@ -51,7 +53,10 @@ bindsym XF86AudioNext exec --no-startup-id mpc next
 bindsym XF86AudioMute exec --no-startup-id mpc toggle
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle
 bindsym XF86AudioStop exec --no-startup-id mpc stop
+# Screenshot Keybind
 bindsym Print exec --no-startup-id flameshot gui
+# Woomer Keybind
+bindsym Ctrl+Shift+z exec --no-startup-id woomer
 
 # Basic keybindings
 bindsym $mod+w kill
