@@ -17,13 +17,13 @@ vim.opt.cursorline = true
 -- Use spaces instead of tabs
 vim.opt.expandtab = true
 -- Spaces to use for each step of autoindent
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 -- Smart indent based on context in code
 vim.opt.smartindent = true
 -- Number of spaces a tab is
-vim.opt.tabstop = 2
+vim.opt.tabstop = 4
 -- Insert specified amount of spaces when pressing Tab
-vim.opt.softtabstop = 2
+vim.opt.softtabstop = 4
 
 -- Display empty lines at the end of the buffer with spaces instead of ~
 vim.opt.fillchars = { eob = " " }
@@ -32,10 +32,5 @@ vim.opt.ignorecase = true
 -- Override ignorecase if the search contains uppercase letters
 vim.opt.smartcase = true
 
--- Don't close netrw after opening file
-vim.g.netrw_browse_split = 4
 -- Open file to the right of netrw instead of left
 vim.g.netrw_altv = 1
-
--- Ignore neovim python recommendation
-vim.g.python_recommended_style = 0
