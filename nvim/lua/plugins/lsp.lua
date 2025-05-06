@@ -8,7 +8,12 @@ return {
   },
 
   config = function()
-    local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities())
+    local capabilities = vim.tbl_deep_extend(
+      "force",
+      vim.lsp.protocol.make_client_capabilities(),
+      require("blink.cmp").get_lsp_capabilities()
+    )
+    local lspconfig = require("lspconfig")
 
     require("fidget").setup({})
     require("mason").setup()
@@ -28,13 +33,12 @@ return {
 
       handlers = {
         function(server_name)
-          require("lspconfig")[server_name].setup({
+          lspconfig[server_name].setup({
             capabilities = capabilities,
           })
         end,
 
         ["lua_ls"] = function()
-          local lspconfig = require("lspconfig")
           lspconfig.lua_ls.setup({
             capabilities = capabilities,
             settings = {
@@ -47,7 +51,6 @@ return {
           })
         end,
         ["gopls"] = function()
-          local lspconfig = require("lspconfig")
           lspconfig.gopls.setup({
             filetypes = { "go", "gomod", "gowork", "gotmpl" },
             settings = {
