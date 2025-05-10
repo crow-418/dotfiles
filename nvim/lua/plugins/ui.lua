@@ -33,6 +33,7 @@ local themes = {
     "sainnhe/gruvbox-material",
     "maxmx03/solarized.nvim",
     "craftzdog/solarized-osaka.nvim",
+    "rose-pine/neovim",
 }
 
 for _, plugin in ipairs(themes) do
