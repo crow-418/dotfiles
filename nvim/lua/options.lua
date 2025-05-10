@@ -31,6 +31,3 @@ vim.opt.fillchars = { eob = " " }
 vim.opt.ignorecase = true
 -- Override ignorecase if the search contains uppercase letters
 vim.opt.smartcase = true
-
--- Open file to the right of netrw instead of left
-vim.g.netrw_altv = 1

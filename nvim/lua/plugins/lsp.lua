@@ -1,69 +1,35 @@
 return {
-  "neovim/nvim-lspconfig",
-  lazy = false,
-  dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "j-hui/fidget.nvim",
-  },
-
-  config = function()
-    local capabilities = vim.tbl_deep_extend(
-      "force",
-      vim.lsp.protocol.make_client_capabilities(),
-      require("blink.cmp").get_lsp_capabilities()
-    )
-    local lspconfig = require("lspconfig")
-
-    require("fidget").setup({})
-    require("mason").setup()
-    require("mason-lspconfig").setup({
-      ensure_installed = {
-        "lua_ls",
-        "html",
-        "cssls",
-        "clangd",
-        "omnisharp",
-        "bashls",
-        "rust_analyzer",
-        "pyright",
-        "ts_ls",
-        "gopls",
-      },
-
-      handlers = {
-        function(server_name)
-          lspconfig[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
-
-        ["lua_ls"] = function()
-          lspconfig.lua_ls.setup({
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                diagnostics = {
-                  globals = { "vim", "it", "describe", "before_each", "after_each" },
-                },
-              },
+    {
+        "j-hui/fidget.nvim",
+        event = "LspAttach",
+        opts = {},
+    },
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        opts = {
+            servers = {
+                lua_ls = {},
+                html = {},
+                cssls = {},
+                clangd = {},
+                omnisharp = {},
+                bashls = {},
+                rust_analyzer = {},
+                pyright = {},
+                ts_ls = {},
+                gopls = {},
             },
-          })
+        },
+        config = function(_, opts)
+            local lspconfig = require("lspconfig")
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+            for server, server_opts in pairs(opts.servers) do
+                server_opts.capabilities =
+                    vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
+                lspconfig[server].setup(server_opts)
+            end
         end,
-        ["gopls"] = function()
-          lspconfig.gopls.setup({
-            filetypes = { "go", "gomod", "gowork", "gotmpl" },
-            settings = {
-              env = {
-                GOEXPERIMENT = "rangefunc",
-              },
-              formatting = {
-                gofumpt = true,
-              },
-            },
-          })
-        end,
-      },
-    })
-  end,
+    },
 }

@@ -1,39 +1,34 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPost", "BufNewFile" },
-  build = ":TSUpdate",
-  config = function()
-    local treesitter = require("nvim-treesitter.configs")
-
-    treesitter.setup({
-      ensure_installed = {
-        "vim",
-        "lua",
-        "vimdoc",
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "c",
-        "c_sharp",
-        "bash",
-        "rust",
-        "python",
-        "go",
-      },
-
-      highlight = {
-        enable = true,
-        use_languagetree = true,
-      },
-
-      autotag = {
-        enable = true,
-        enable_rename = true,
-        enable_close = true,
-        enable_close_on_slash = true,
-        filetypes = { "html", "xml" },
-      },
-    })
-  end,
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+        ensure_installed = {
+            "bash",
+            "cmake",
+            "css",
+            "go",
+            "html",
+            "javascript",
+            "json",
+            "lua",
+            "python",
+            "toml",
+            "vim",
+            "yaml",
+        },
+    },
+    config = function(_, opts)
+        ---@type TSConfig
+        ---@diagnostic disable-next-line: missing-fields
+        require("nvim-treesitter.configs").setup({
+            ensure_installed = opts.ensure_installed,
+            highlight = {
+                enable = true,
+            },
+            indent = { enable = true },
+            autopairs = { enable = true },
+            sync_install = false,
+        })
+    end,
 }

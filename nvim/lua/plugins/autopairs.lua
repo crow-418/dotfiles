@@ -1,8 +1,15 @@
 return {
-	"windwp/nvim-autopairs",
-	event = "InsertEnter",
-	opts = {
-		fast_wrap = {},
-		disable_filetype = { "vim" },
-	},
+    "saghen/blink.pairs",
+    event = "InsertEnter",
+    version = "*",
+    dependencies = "saghen/blink.download",
+    opts = {
+        highlights = {
+            matchparen = {
+                enabled = true,
+                group = "MatchParen",
+            },
+        },
+        debug = false,
+    },
 }
