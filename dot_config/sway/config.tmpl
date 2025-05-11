@@ -22,8 +22,11 @@ exec --no-startup-id flameshot &
 # output * bg ../wallpapers/a_painting_of_a_man_with_a_face_on_his_head.png fill
 
 # Set screen refresh rate
+{{- if eq .chezmoi.hostname "z0mbox" }}
 output DP-1 mode 1920x1080@75Hz
-
+{{ else if eq .chezmoi.hostname "gh0stbook" }}
+output eDP-1 mode 1920x1080@60Hz
+{{ end }}
 # Default workspace
 workspace 1
 
