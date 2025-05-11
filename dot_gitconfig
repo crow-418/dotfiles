@@ -1,0 +1,12 @@
+[user]
+	name = Iulian Nichifor
+	email = 73722884+crow-418@users.noreply.github.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
