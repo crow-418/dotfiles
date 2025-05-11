@@ -1,0 +1,16 @@
+[main]
+term = xterm-256color
+font = JetBrains Mono Nerd Font:size=16.5
+{{- if eq .chezmoi.hostname "z0mbox" }}
+font = JetBrains Mono Nerd Font:size=16.5
+{{ else if eq .chezmoi.hostname "gh0stbook" }}
+font = JetBrains Mono Nerd Font:size=12
+{{ end }}
+dpi-aware = yes
+
+[mouse]
+hide-when-typing = yes
+
+[colors]
+background= 191919
+foreground= 839496
