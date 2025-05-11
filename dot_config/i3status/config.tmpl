@@ -2,6 +2,11 @@ general {
     interval = 1
 }
 
+{{- if eq .chezmoi.hostname "gh0stbook" }}
+order += "battery BAT0"
+order += "battery BAT1"
+{{ end }}
+
 order += "memory"
 order += "tztime local"
 
@@ -12,4 +17,20 @@ memory {
 tztime local {
     format = "%A, %B %d - %H:%M"
 }
+{{ if eq .chezmoi.hostname "gh0stbook" }}
+battery BAT0 {
+    format = "BAT0: %status %percentage"
+    path = "/sys/class/power_supply/BAT0/uevent"
+    low_threshold = 10
+    format_down = "BAT0: Down"
+    last_full_capacity = true
+}
 
+battery BAT1 {
+    format = "BAT1: %status %percentage"
+    path = "/sys/class/power_supply/BAT1/uevent"
+    low_threshold = 10
+    format_down = "BAT1: Down"
+    last_full_capacity = true
+}
+{{ end }}
