@@ -34,6 +34,7 @@ local themes = {
     "maxmx03/solarized.nvim",
     "craftzdog/solarized-osaka.nvim",
     "rose-pine/neovim",
+    "gremble0/yellowbeans.nvim",
 }
 
 for _, plugin in ipairs(themes) do
