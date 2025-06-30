@@ -43,8 +43,9 @@ autocmd("FileType", {
 
 -- Load the last used colorscheme from file, fallback to default
 local colorscheme_file = vim.fn.stdpath("data") .. "/colorscheme.txt"
-local current_theme = vim.fn.filereadable(colorscheme_file) == 1 and vim.fn.readfile(colorscheme_file)[1]
-    or "gruber-darker"
+local current_theme = (vim.fn.filereadable(colorscheme_file) == 1 and vim.fn.readfile(colorscheme_file)[1]) or nil
+
+current_theme = current_theme or "gruber-darker"
 
 vim.cmd.colorscheme(current_theme)
 
