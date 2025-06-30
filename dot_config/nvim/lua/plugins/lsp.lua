@@ -2,7 +2,13 @@ return {
     {
         "j-hui/fidget.nvim",
         event = "LspAttach",
-        opts = {},
+        opts = {
+            notification = {
+                window = {
+                    winblend = 0,
+                }
+            }
+        },
     },
     {
         "neovim/nvim-lspconfig",
@@ -25,7 +31,6 @@ return {
             local lspconfig = require("lspconfig")
             local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-            -- something
             for server, server_opts in pairs(opts.servers) do
                 server_opts.capabilities =
                     vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
