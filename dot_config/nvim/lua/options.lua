@@ -31,3 +31,5 @@ vim.opt.fillchars = { eob = " " }
 vim.opt.ignorecase = true
 -- Override ignorecase if the search contains uppercase letters
 vim.opt.smartcase = true
+-- Always have signcolumn visible so git signs doesn't move everything to the right
+vim.opt.signcolumn = "yes"
