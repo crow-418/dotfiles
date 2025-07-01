@@ -58,7 +58,7 @@ bindsym XF86AudioMute exec --no-startup-id mpc toggle
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle
 bindsym XF86AudioStop exec --no-startup-id mpc stop
 # Screenshot Keybind
-bindsym Print exec --no-startup-id flameshot gui
+bindsym Print exec grim -g "$(slurp)" - | swappy -f -
 # Woomer Keybind
 bindsym Ctrl+Shift+z exec --no-startup-id woomer
 # Swaylock Keybind
