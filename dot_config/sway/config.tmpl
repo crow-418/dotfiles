@@ -15,16 +15,17 @@ exec /usr/lib/xdg-desktop-portal -r
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+{{ if eq .chezmoi.hostname "z0mbox" }}
+# wallpaper
+output * bg ~/.wallpapers/a_painting_of_a_man_with_a_face_on_his_head.png fill
 
-exec --no-startup-id flameshot &
-
-# Mountain
-# output * bg ../wallpapers/a_painting_of_a_man_with_a_face_on_his_head.png fill
-
-# Set screen refresh rate
-{{- if eq .chezmoi.hostname "z0mbox" }}
+# screen settings
 output DP-1 mode 1920x1080@75Hz
 {{ else if eq .chezmoi.hostname "gh0stbook" }}
+# wallpaper
+output * bg ~/.wallpapers/a_candy_skull.png fill
+
+# screen settings
 output eDP-1 mode 1920x1080@60Hz
 {{ end }}
 # Default workspace
