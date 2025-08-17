@@ -40,12 +40,15 @@ local themes = {
     "sainnhe/gruvbox-material",
     "maxmx03/solarized.nvim",
     "craftzdog/solarized-osaka.nvim",
-    "rose-pine/neovim",
+    { "rose-pine/neovim", name = "rose-pine" },
     "gremble0/yellowbeans.nvim",
 }
 
 for _, plugin in ipairs(themes) do
-    table.insert(plugins, { plugin, lazy = true })
+    table.insert(
+        plugins,
+        type(plugin) == "table" and { plugin[1], name = plugin.name, lazy = true } or { plugin, lazy = true }
+    )
 end
 
 return plugins
