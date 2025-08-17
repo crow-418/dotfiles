@@ -2,6 +2,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
+    main = "nvim-treesitter.configs",
     opts = {
         ensure_installed = {
             "bash",
@@ -16,19 +17,11 @@ return {
             "toml",
             "vim",
             "yaml",
+            "markdown",
+            "markdown_inline",
         },
+        highlight = { enable = true },
+        indent = { enable = true },
+        autopairs = { enable = true },
     },
-    config = function(_, opts)
-        ---@type TSConfig
-        ---@diagnostic disable-next-line: missing-fields
-        require("nvim-treesitter.configs").setup({
-            ensure_installed = opts.ensure_installed,
-            highlight = {
-                enable = true,
-            },
-            indent = { enable = true },
-            autopairs = { enable = true },
-            sync_install = false,
-        })
-    end,
 }
