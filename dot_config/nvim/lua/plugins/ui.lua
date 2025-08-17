@@ -5,6 +5,7 @@ local plugins = {
     },
     {
         "echasnovski/mini.icons",
+        version = "*",
         lazy = true,
         opts = {},
         init = function()
@@ -13,6 +14,12 @@ local plugins = {
                 return package.loaded["nvim-web-devicons"]
             end
         end,
+    },
+    {
+        "echasnovski/mini.statusline",
+        version = "*",
+        event = "VeryLazy",
+        opts = {},
     },
 }
 
