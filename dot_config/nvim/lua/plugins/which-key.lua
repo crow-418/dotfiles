@@ -10,7 +10,4 @@ return {
         },
         sort = { "alphanum" },
     },
-    config = function(_, opts)
-        require("which-key").setup(opts)
-    end,
 }
